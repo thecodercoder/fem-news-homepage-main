@@ -1,0 +1,61 @@
+@use '../util' as u;
+
+.nav {
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+
+    @media (width >= u.em(1110)) {
+      display: none;
+    }
+  }
+
+  &__open[aria-expanded='true'] {
+    ~ .nav__content {
+      translate: 0;
+
+      @media (prefers-reduced-motion) {
+        opacity: 1;
+      }
+    }
+
+    ~ .nav__overlay {
+      opacity: 0.5;
+    }
+  }
+
+  &__content {
+    @media (width < u.em(1110)) {
+      display: none;
+      position: fixed;
+      inset: 0 0 0 u.rem(120);
+      background-color: var(--c-white);
+      padding: u.rem(30);
+      translate: 100vw 0;
+      transition: translate 500ms ease-in-out;
+    }
+
+    @media (prefers-reduced-motion) {
+      translate: 0;
+      opacity: 0;
+      transition: opacity 500ms ease-in-out;
+    }
+  }
+
+  &__close {
+    display: block;
+    margin-inline-start: auto;
+    margin-block-end: u.rem(86);
+  }
+
+  &__overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: var(--c-blue);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    pointer-events: none;
+  }
+}

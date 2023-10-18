@@ -43,5 +43,9 @@
     font-weight: 700;
     text-transform: uppercase;
     padding: u.rem(12) u.rem(32);
+
+    &:hover {
+      background-color: var(--c-blue);
+    }
   }
 }

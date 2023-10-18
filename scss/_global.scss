@@ -60,6 +60,8 @@ p {
 
 a {
   text-decoration: none;
+  transition: 150ms ease-in-out;
+  transition-property: color, background-color;
 }
 
 img {
@@ -90,4 +92,8 @@ li {
     grid-template-rows: u.rem(300) auto auto;
     gap: u.rem(30);
   }
+}
+
+.noscroll {
+  overflow-y: hidden;
 }
